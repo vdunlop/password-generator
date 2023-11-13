@@ -52,43 +52,34 @@ THEN the password is either displayed in an alert or written to the page
 
 ### Mock Up
 Screenshot of the website with a password generated.
-![Alt text](image.png)
+![Alt text](password-generator.png)
 
+Example of prompt.
+![Alt text](password-generator-prompt.png)
 
-
-![Alt text](image.png)
-
-![Alt text](image-1.png)
-
-![Alt text](image-2.png)
+Example of an alert.
+![Alt text](password-generator-alert.png)
 
 ## Installation/Execution
-https://vdunlop.github.io/portfolio/
+https://vdunlop.github.io/password-generator/
 
-There are 4 navigation items in the website's header. When they are selected, the website should respond as follows:
+The password generator has a button that will need to be pushed to start the process. After you click on the button labeled "Generate Password", you will be prompted for password requirements.
 
-About Me - your view will move to the section titled About Me
+Password Length - password length must be a number between 8 and 128. If you enter a number out of bounds, you will receive an alert and you will need to start over.
 
-Work - your view will move to the section titled Work
+Prompt for Uppercase Letter Inclusion - this prompt requires an answer of 'y', 'Y', 'n', or 'N'. If you specify a different value or no value, you will receive an alert and you will need to start over.
 
-Contact Me - your view will move to the section titled Contact Me
+Prompt for Lowercase Letter Inclusion - this prompt requires an answer of 'y', 'Y', 'n', or 'N'. If you specify a different value or no value, you will receive an alert and you will need to start over.
 
-Resume - you will be brought to a .pdf version of my resume
+Prompt for Single-digit Number Inclusion - this prompt requires an answer of 'y', 'Y', 'n', or 'N'. If you specify a different value or no value, you will receive an alert and you will need to start over.
 
-Each image links to a project in the specified language listed.
+Prompt for Special Character Inclusion - this prompt requires an answer of 'y', 'Y', 'n', or 'N'. If you specify a different value or no value, you will receive an alert and you will need to start over.
 
-Contact information for Vicki is included at the bottom of this Portfolio.
+The generated password will include characters of the types above that you respond 'y' or 'Y' to. If you respond 'n' or 'N' to all prompts, you will receive an alert and you will need to start over.
+
 
 ## Usage
-When you open the portfolio window, you will be able to navigate to the sections below the main image by selecting the navigation items at the top of the page.
-
-You will be able to view Vicki's current resume, as well as her LinkedIn page. 
-
-Vicki's most current projects are highlighted first. Click on the image.
-
-Archived projects are listed below the current project images.
-
-Vicki's most current contact information is at the bottom of the screen.
+When you open the password generator window, you will be able to click on the "Generate Password" button to design and generate a password that is based on random number generation to choose its contents.
 
 ## Credits
 
