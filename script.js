@@ -76,6 +76,13 @@ function generatePassword() {
     alert("This is not a valid answer");
     return;
   }
+
+    // Make sure that at least one character type was selected.
+    if ((characterTypes[0].toUpperCase() === "N") && (characterTypes[1].toUpperCase() === "N") &&
+    (characterTypes[2].toUpperCase() === "N") && (characterTypes[3].toUpperCase() === "N")) {
+      alert("You must select at least one special character.")
+    }
+    
   console.log(characterTypes);
 }
 // Write password to the #password input
