@@ -92,29 +92,36 @@ function generatePassword() {
 
     switch (charTypePointer) {
       case 0: console.log (charTypePointer);
-      randomPointer = Math.floor(Math.random() * MAX_LETTERS);
-      console.log (randomPointer);
-      console.log (ALPHABET[randomPointer].toUpperCase());
+      console.log (characterTypes[charTypePointer]);
+      if (characterTypes[charTypePointer].toUpperCase() === "Y") {
+        randomPointer = Math.floor(Math.random() * MAX_LETTERS);
+        console.log (randomPointer);
+        console.log (ALPHABET[randomPointer].toUpperCase());
+        passwordHolder = passwordHolder + ALPHABET[randomPointer].toUpperCase();
+        counter = counter + 1;
+      }
       break;
       case 1: console.log (charTypePointer);
+      console.log (characterTypes[charTypePointer]);
       randomPointer = Math.floor(Math.random() * MAX_LETTERS);
       console.log (randomPointer);
       console.log (ALPHABET[randomPointer]);
       break;
       case 2: console.log (charTypePointer);
+      console.log (characterTypes[charTypePointer]);
       randomPointer = Math.floor(Math.random() * 10);
       console.log (randomPointer);
       console.log (randomPointer);
-
       break;
       case 3: console.log (charTypePointer);
+      console.log (characterTypes[charTypePointer]);
       randomPointer = Math.floor(Math.random() * MAX_SPECIAL_CHARS);
       console.log (randomPointer);
       console.log (SPECIAL_CHARS[randomPointer]);
       break;
       default: console.log ("switch is broken");
     }
-    counter = counter + 1;
+    //counter = counter + 1;
     console.log ("counter after inc " + counter);  
 
     if (charTypePointer === MAX_CHARTYPE) {
@@ -124,6 +131,7 @@ function generatePassword() {
     }
     }
     console.log ("outside of while");
+    console.log("password = " + passwordHolder);
   
   console.log(characterTypes);
 }
