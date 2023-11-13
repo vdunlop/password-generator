@@ -12,6 +12,7 @@ function generatePassword() {
   var charTypePointer = 0;
   var MAX_CHARTYPE = 4;
   var passwordHolder = "";
+  var randomPointer = 0;
 
   // Prompt to process password length input.
   // Requirements: 8 to 128 characters.
@@ -87,25 +88,40 @@ function generatePassword() {
   charTypePointer = 0;
   var counter=0;
   while (counter<passwordLength){
-    if (charTypePointer === MAX_CHARTYPE) {
-      charTypePointer = 0;
-    } else {
-      charTypePointer = charTypePointer + 1;
-    }
+  
 
     switch (charTypePointer) {
       case 0: console.log (charTypePointer);
+      randomPointer = Math.floor(Math.random() * MAX_LETTERS);
+      console.log (randomPointer);
+      console.log (ALPHABET[randomPointer].toUpperCase());
       break;
       case 1: console.log (charTypePointer);
+      randomPointer = Math.floor(Math.random() * MAX_LETTERS);
+      console.log (randomPointer);
+      console.log (ALPHABET[randomPointer]);
       break;
       case 2: console.log (charTypePointer);
+      randomPointer = Math.floor(Math.random() * 10);
+      console.log (randomPointer);
+      console.log (randomPointer);
+
       break;
       case 3: console.log (charTypePointer);
+      randomPointer = Math.floor(Math.random() * MAX_SPECIAL_CHARS);
+      console.log (randomPointer);
+      console.log (SPECIAL_CHARS[randomPointer]);
       break;
       default: console.log ("switch is broken");
     }
     counter = counter + 1;
     console.log ("counter after inc " + counter);  
+
+    if (charTypePointer === MAX_CHARTYPE) {
+      charTypePointer = 0;
+    } else {
+      charTypePointer = charTypePointer + 1;
+    }
     }
     console.log ("outside of while");
   
