@@ -84,7 +84,30 @@ function generatePassword() {
   }
 
   //Create the password.
+  charTypePointer = 0;
+  var counter=0;
+  while (counter<passwordLength){
+    if (charTypePointer === MAX_CHARTYPE) {
+      charTypePointer = 0;
+    } else {
+      charTypePointer = charTypePointer + 1;
+    }
 
+    switch (charTypePointer) {
+      case 0: console.log (charTypePointer);
+      break;
+      case 1: console.log (charTypePointer);
+      break;
+      case 2: console.log (charTypePointer);
+      break;
+      case 3: console.log (charTypePointer);
+      break;
+      default: console.log ("switch is broken");
+    }
+    counter = counter + 1;
+    console.log ("counter after inc " + counter);  
+    }
+    console.log ("outside of while");
   
   console.log(characterTypes);
 }
