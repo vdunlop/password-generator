@@ -1,22 +1,25 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Password Generator
+// FUNCTION Password Generator
 function generatePassword() {
   var passwordLength = 0;
   var characterTypes = ["n", "n", "n", "n"];
-  console.log("I'm inside generate password.");
+  var ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  var SPECIAL_CHARS = ['!',',','"','#','$','%','&','(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[','\]','^','_','`','{','|','}','~'];
+  var MAX_LETTERS = 26;
+  var MAX_SPECIAL_CHARS = 31;
+  var charTypePointer = 0;
+  var MAX_CHARTYPE = 4;
+  var passwordHolder = "";
 
   // Prompt to process password length input.
   // Requirements: 8 to 128 characters.
   passwordLength = prompt("Choose a password length between 8 and 128 characters.");
   console.log("passwordLength = " + passwordLength);
 
-  // ***
-  //if (typeof passwordLength) == "number") {
-  //  alert("Length must be a number.");
-  //  return;
-  //}
+  // *** test for the data entry being a number and not another character
+
   if ((passwordLength < 8) || (passwordLength > 128)) {
     alert("Password must be between 8 and 128 characters in length.");
     return;
@@ -34,9 +37,6 @@ function generatePassword() {
       alert("This is not a valid answer-2.");
     return;
   }
-  console.log(characterTypes[0].toUpperCase());
-
-
 
   // Prompt to process password including lowercase letters.
   characterTypes[1] = prompt("Do you want to include lowercase letters in your password? \n(Enter Y for yes or N for no)");
@@ -77,14 +77,18 @@ function generatePassword() {
     return;
   }
 
-    // Make sure that at least one character type was selected.
-    if ((characterTypes[0].toUpperCase() === "N") && (characterTypes[1].toUpperCase() === "N") &&
-    (characterTypes[2].toUpperCase() === "N") && (characterTypes[3].toUpperCase() === "N")) {
-      alert("You must select at least one special character.")
-    }
-    
+  // Make sure that at least one character type was selected.
+  if ((characterTypes[0].toUpperCase() === "N") && (characterTypes[1].toUpperCase() === "N") &&
+  (characterTypes[2].toUpperCase() === "N") && (characterTypes[3].toUpperCase() === "N")) {
+    alert("You must select at least one special character.")
+  }
+
+  //Create the password.
+
+  
   console.log(characterTypes);
 }
+// FUNCTION Write Password
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -94,6 +98,6 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
+// Add event listener to generate button. Listening for the button to be clicked.
 generateBtn.addEventListener("click", writePassword);
 
