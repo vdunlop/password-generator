@@ -30,13 +30,54 @@ function generatePassword() {
     alert("This is not a valid answer-1.");
     return;
   }
-  if ((characterTypes[0].toUpperCase() != "N") && (characterTypes[0].toUpperCase() != "Y")) {
+  if ((characterTypes[0].toUpperCase() !== "N") && (characterTypes[0].toUpperCase() !== "Y")) {
       alert("This is not a valid answer-2.");
     return;
   }
   console.log(characterTypes[0].toUpperCase());
-}
 
+
+
+  // Prompt to process password including lowercase letters.
+  characterTypes[1] = prompt("Do you want to include lowercase letters in your password? \n(Enter Y for yes or N for no)");
+  console.log("lowercase = " + characterTypes[1]);
+
+  if ((characterTypes[1].length < 1) || (characterTypes[1].length > 1)) {
+    alert("This is not a valid answer.");
+    return;
+  }
+  if ((characterTypes[1].toUpperCase() !== "N") && (characterTypes[1].toUpperCase() !== "Y")) {
+    alert("This is not a valid answer");
+    return;
+  }
+
+  // Prompt to process password including single digit numbers.
+  characterTypes[2] = prompt("Do you want to include single digit numbers in your password? \n(Enter Y for yes or N for no)");
+  console.log("numbers = " + characterTypes[2]);
+
+  if ((characterTypes[2].length < 1) || (characterTypes[2].length > 1)) {
+    alert("This is not a valid answer.");
+    return;
+  }
+  if ((characterTypes[2].toUpperCase() !== "N") && (characterTypes[2].toUpperCase() !== "Y")) {
+    alert("This is not a valid answer");
+    return;
+  }
+
+  // Prompt to process password including special characters.
+  characterTypes[3] = prompt("Do you want to include special characters in your password? \n(Enter Y for yes or N for no)");
+  console.log("lowercase = " + characterTypes[3]);
+
+  if ((characterTypes[3].length < 1) || (characterTypes[3].length > 1)) {
+    alert("This is not a valid answer.");
+    return;
+  }
+  if ((characterTypes[3].toUpperCase() !== "N") && (characterTypes[3].toUpperCase() !== "Y")) {
+    alert("This is not a valid answer");
+    return;
+  }
+  console.log(characterTypes);
+}
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
