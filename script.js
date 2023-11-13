@@ -5,19 +5,19 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword() {
   var passwordLength = 0;
   var characterTypes = ["n", "n", "n", "n"];
+  var MAX_CHARTYPEPOINTER = 3;
   var ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
   var SPECIAL_CHARS = ['!',',','"','#','$','%','&','(',')','*','+',',','-','.','/',':',';','<','=','>','?','@','[','\]','^','_','`','{','|','}','~'];
   var MAX_LETTERS = 26;
   var MAX_SPECIAL_CHARS = 31;
   var charTypePointer = 0;
-  var MAX_CHARTYPE = 4;
-  var passwordHolder = "";
+    var passwordHolder = "";
   var randomPointer = 0;
 
   // Prompt to process password length input.
   // Requirements: 8 to 128 characters.
   passwordLength = prompt("Choose a password length between 8 and 128 characters.");
-  console.log("passwordLength = " + passwordLength);
+  //console.log("passwordLength = " + passwordLength);
 
   // *** test for the data entry being a number and not another character
 
@@ -28,7 +28,7 @@ function generatePassword() {
 
   // Prompt to process password including uppercase letters.
   characterTypes[0] = prompt("Do you want to include uppercase letters in your password? \n(Enter Y for yes or N for no)");
-  console.log("uppercase = " + characterTypes[0]);
+  //console.log("uppercase = " + characterTypes[0]);
 
   if ((characterTypes[0].length < 1) || (characterTypes[0].length > 1)) {
     alert("This is not a valid answer-1.");
@@ -41,7 +41,7 @@ function generatePassword() {
 
   // Prompt to process password including lowercase letters.
   characterTypes[1] = prompt("Do you want to include lowercase letters in your password? \n(Enter Y for yes or N for no)");
-  console.log("lowercase = " + characterTypes[1]);
+  //console.log("lowercase = " + characterTypes[1]);
 
   if ((characterTypes[1].length < 1) || (characterTypes[1].length > 1)) {
     alert("This is not a valid answer.");
@@ -54,7 +54,7 @@ function generatePassword() {
 
   // Prompt to process password including single digit numbers.
   characterTypes[2] = prompt("Do you want to include single digit numbers in your password? \n(Enter Y for yes or N for no)");
-  console.log("numbers = " + characterTypes[2]);
+  //console.log("numbers = " + characterTypes[2]);
 
   if ((characterTypes[2].length < 1) || (characterTypes[2].length > 1)) {
     alert("This is not a valid answer.");
@@ -67,7 +67,7 @@ function generatePassword() {
 
   // Prompt to process password including special characters.
   characterTypes[3] = prompt("Do you want to include special characters in your password? \n(Enter Y for yes or N for no)");
-  console.log("lowercase = " + characterTypes[3]);
+  //console.log("lowercase = " + characterTypes[3]);
 
   if ((characterTypes[3].length < 1) || (characterTypes[3].length > 1)) {
     alert("This is not a valid answer.");
@@ -87,53 +87,75 @@ function generatePassword() {
   //Create the password.
   charTypePointer = 0;
   var counter=0;
+  //debugger;
   while (counter<passwordLength){
   
 
     switch (charTypePointer) {
-      case 0: console.log (charTypePointer);
-      console.log (characterTypes[charTypePointer]);
+
+      // Add an uppercase character if user chose it.
+      case 0: //console.log (charTypePointer);
+      //console.log (characterTypes[charTypePointer]);
       if (characterTypes[charTypePointer].toUpperCase() === "Y") {
         randomPointer = Math.floor(Math.random() * MAX_LETTERS);
-        console.log (randomPointer);
-        console.log (ALPHABET[randomPointer].toUpperCase());
+        //console.log (randomPointer);
+        //console.log (ALPHABET[randomPointer].toUpperCase());
         passwordHolder = passwordHolder + ALPHABET[randomPointer].toUpperCase();
         counter = counter + 1;
       }
       break;
-      case 1: console.log (charTypePointer);
-      console.log (characterTypes[charTypePointer]);
-      randomPointer = Math.floor(Math.random() * MAX_LETTERS);
-      console.log (randomPointer);
-      console.log (ALPHABET[randomPointer]);
+
+      // Add a lowercase character if user chose it.
+      case 1: //console.log (charTypePointer);
+      //console.log (characterTypes[charTypePointer]);
+      if (characterTypes[charTypePointer].toUpperCase() === "Y") {
+        randomPointer = Math.floor(Math.random() * MAX_LETTERS);
+        //console.log (randomPointer);
+        //console.log (ALPHABET[randomPointer]);
+        passwordHolder = passwordHolder + ALPHABET[randomPointer];
+        counter = counter + 1;
+      }
       break;
-      case 2: console.log (charTypePointer);
-      console.log (characterTypes[charTypePointer]);
-      randomPointer = Math.floor(Math.random() * 10);
-      console.log (randomPointer);
-      console.log (randomPointer);
+
+      // Add a number if user chose it.
+      case 2: //console.log (charTypePointer);
+      //console.log (characterTypes[charTypePointer]);
+      if (characterTypes[charTypePointer].toUpperCase() === "Y") {
+        randomPointer = Math.floor(Math.random() * 9);
+        //console.log (randomPointer);
+        //console.log (randomPointer);
+        passwordHolder = passwordHolder + randomPointer;
+        counter = counter + 1;
+      }
       break;
-      case 3: console.log (charTypePointer);
-      console.log (characterTypes[charTypePointer]);
-      randomPointer = Math.floor(Math.random() * MAX_SPECIAL_CHARS);
-      console.log (randomPointer);
-      console.log (SPECIAL_CHARS[randomPointer]);
+
+      // Add a special character if user chose it.
+      case 3: //console.log (charTypePointer);
+      //console.log (characterTypes[charTypePointer]);
+      if (characterTypes[charTypePointer].toUpperCase() === "Y") {
+        randomPointer = Math.floor(Math.random() * MAX_SPECIAL_CHARS);
+        //console.log (randomPointer);
+        //console.log (SPECIAL_CHARS[randomPointer]);
+        passwordHolder = passwordHolder + SPECIAL_CHARS[randomPointer];
+        counter = counter + 1;
+      }
       break;
       default: console.log ("switch is broken");
     }
     //counter = counter + 1;
-    console.log ("counter after inc " + counter);  
+    //console.log ("counter after inc " + counter);  
 
-    if (charTypePointer === MAX_CHARTYPE) {
+    if (charTypePointer >= MAX_CHARTYPEPOINTER) {
       charTypePointer = 0;
     } else {
       charTypePointer = charTypePointer + 1;
     }
     }
-    console.log ("outside of while");
-    console.log("password = " + passwordHolder);
-  
-  console.log(characterTypes);
+    //console.log ("outside of while");
+    //console.log("password = " + passwordHolder);
+  //password = passwordHolder;
+  return(passwordHolder);
+  //console.log(characterTypes);
 }
 // FUNCTION Write Password
 // Write password to the #password input
