@@ -52,13 +52,13 @@ THEN the password is either displayed in an alert or written to the page
 
 ### Mock Up
 Screenshot of the website with a password generated.
-![Alt text](password-generator.png)
+![Alt text](./assets/images/password-generator.png)
 
 Example of prompt.
-![Alt text](password-generator-prompt.png)
+![Alt text](./assets/images/password-generator-prompt.png)
 
 Example of an alert.
-![Alt text](password-generator-alert.png)
+![Alt text](./assets/images/password-generator-alert.png)
 
 ## Installation/Execution
 https://vdunlop.github.io/password-generator/
