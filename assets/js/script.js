@@ -1,5 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var errorCode = -1;
 
 // FUNCTION Password Generator
 function generatePassword() {
@@ -14,16 +15,21 @@ function generatePassword() {
     var passwordHolder = "";
   var randomPointer = 0;
 
+
   // Prompt to process password length input.
   // Requirements: 8 to 128 characters.
   passwordLength = prompt("Choose a password length between 8 and 128 characters.");
   //console.log("passwordLength = " + passwordLength);
 
   // *** test for the data entry being a number and not another character
+  if (isNaN(passwordLength)) {
+    alert("Password must be a number.")
+    return(errorCode);
+  }
 
   if ((passwordLength < 8) || (passwordLength > 128)) {
     alert("Password must be between 8 and 128 characters in length.");
-    return;
+    return(errorCode);
   }
 
   // Prompt to process password including uppercase letters.
@@ -32,11 +38,11 @@ function generatePassword() {
 
   if ((characterTypes[0].length < 1) || (characterTypes[0].length > 1)) {
     alert("This is not a valid answer-1.");
-    return;
+    return(errorCode);
   }
   if ((characterTypes[0].toUpperCase() !== "N") && (characterTypes[0].toUpperCase() !== "Y")) {
       alert("This is not a valid answer-2.");
-    return;
+    return(errorCode);
   }
 
   // Prompt to process password including lowercase letters.
@@ -45,11 +51,11 @@ function generatePassword() {
 
   if ((characterTypes[1].length < 1) || (characterTypes[1].length > 1)) {
     alert("This is not a valid answer.");
-    return;
+    return(errorCode);
   }
   if ((characterTypes[1].toUpperCase() !== "N") && (characterTypes[1].toUpperCase() !== "Y")) {
     alert("This is not a valid answer");
-    return;
+    return(errorCode);
   }
 
   // Prompt to process password including single digit numbers.
@@ -58,11 +64,11 @@ function generatePassword() {
 
   if ((characterTypes[2].length < 1) || (characterTypes[2].length > 1)) {
     alert("This is not a valid answer.");
-    return;
+    return(errorCode);
   }
   if ((characterTypes[2].toUpperCase() !== "N") && (characterTypes[2].toUpperCase() !== "Y")) {
     alert("This is not a valid answer");
-    return;
+    return(errorCode);
   }
 
   // Prompt to process password including special characters.
@@ -71,11 +77,11 @@ function generatePassword() {
 
   if ((characterTypes[3].length < 1) || (characterTypes[3].length > 1)) {
     alert("This is not a valid answer.");
-    return;
+    return(errorCode);
   }
   if ((characterTypes[3].toUpperCase() !== "N") && (characterTypes[3].toUpperCase() !== "Y")) {
     alert("This is not a valid answer");
-    return;
+    return(errorCode);
   }
 
   // Make sure that at least one character type was selected.
@@ -141,6 +147,7 @@ function generatePassword() {
       }
       break;
       default: console.log ("switch is broken");
+      return(errorCode);
     }
     //counter = counter + 1;
     //console.log ("counter after inc " + counter);  
@@ -163,8 +170,11 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
+  if (password == errorCode){
+    passwordText.value = "Click Generate Password";
+  }else{
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button. Listening for the button to be clicked.
