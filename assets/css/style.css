@@ -30,6 +30,7 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+/* Space where password will be displayed.*/
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -54,6 +55,7 @@ header {
   min-height: 100px;
 }
 
+/* Space where the "button" will show.*/
 .card-footer {
   text-align: center;
 }
@@ -72,6 +74,7 @@ header {
   clear: both;
 }
 
+/* Here's the button!*/
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -97,6 +100,7 @@ button[disabled] {
   float: right;
 }
 
+/* Here's where the password will show up.*/
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
